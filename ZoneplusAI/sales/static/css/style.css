@@ -1,0 +1,45 @@
+@font-face {
+    font-family: Outfit-Regular;
+    src: url(../assets/fonts/Outfit-Regular.ttf);
+}
+@font-face {
+    font-family: Outfit-Bold;
+    src: url(../assets/fonts/Outfit-Bold.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Outfit-Regular;
+}
+body{
+    background-color: #343541!important;
+    padding-bottom: 30px;
+}
+.logo{
+    font-family: Outfit-Bold;
+    font-size: 5rem;
+    color: #ececf1;
+}
+.logo b{
+background: linear-gradient(90deg, #9d4edd, #7b2cbf, #5a189a);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.main-div{
+    height: auto;
+    border: 1px solid #9d4edd;
+}
+.main-div label{
+    font-family: Outfit-Regular;
+    color: #ececf1;
+}
+.main-div select{
+    width: 100%;
+    background-color: transparent;
+    color: #ececf1;
+    border-color: #9d4edd;
+    border-radius: 5px;
+    padding: 6px;
+}
+
