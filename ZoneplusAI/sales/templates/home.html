@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fontawesome/css/all.min.css' %}">
+    <script src="{% static 'assets/jquery/jquery-3.6.0.min.js' %}"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+   <h1 class="text-center mt-3 logo">ZonePlus <b>AI</b></h1>
+
+   <div class="container">
+        <div class="mt-5 d-flex justify-content-center w-100">
+            <div class="w-50 showcase" id="showcase">
+
+            </div>
+        </div>
+   </div>
+
+   <form class="container main-div mt-5 d-flex gap-3 w-70 flex-column p-3 rounded-3 shadow-sm" onsubmit="return runDev();">
+       <div class="row">
+    <div class="col-md-12">
+        <div id="year" class="d-flex gap-4">
+            <input type="checkbox" name="year" value="year" id="year"> <label for="year_2016">Year</label>
+            <input type="checkbox" name="quarter" value="quarter" id="quarter"> <label for="cat_acc">Quarter</label>
+            <input type="checkbox" name="region" value="region" id="region"> <label for="region_us">Country</label>
+            <input type="checkbox" name="gender" value="gender" id="gender"> <label for="gender_m">Gender</label>
+            <input type="checkbox" name="age" value="age" id="age"> <label for="age_y">Age</label>
+            <input type="checkbox" name="category" value="category" id="category"> <label for="cat_acc">Category</label>
+        </div>
+    </div>
+
+    <div class="col-md-12 mt-3">
+        <button type="submit" class="btn btn-primary w-100">Predict</button>
+    </div>
+</div>
+
+   </form>
+    <script>
+    const imageUrl = "{% static 'image/img-all.jpg' %}";
+    const imageUrl2 = "{% static 'image/img-country.jpg' %}";
+    const imageUrl3 = "{% static 'image/img-age.jpg' %}";
+    const imageUrl4 = "{% static 'image/img-quarter.jpg' %}";
+
+    function runDev() {
+        const dev = document.getElementById('showcase');
+        const year = document.querySelector('input[name="year"]:checked');
+        const quarter = document.querySelector('input[name="quarter"]:checked');
+        const reg = document.querySelector('input[name="region"]:checked');
+        const prod = document.querySelector('input[name="category"]:checked');
+        const age = document.querySelector('input[name="age"]:checked');
+        const gender = document.querySelector('input[name="gender"]:checked');
+
+        if (year && quarter && reg && prod && age && gender) {
+            dev.innerHTML = `<img src="${imageUrl}" alt="2016" class="img-fluid">`;
+            return false;
+        }
+        if(!year && !quarter && reg && !prod && !age && !gender){
+            dev.innerHTML = `<img src="${imageUrl2}" alt="2016" class="img-fluid">`;
+            return false;
+        }
+        if(!year && !quarter && !reg && !prod && age && !gender){
+            dev.innerHTML = `<img src="${imageUrl3}" alt="2016" class="img-fluid">`;
+            return false;
+        }
+        if(!year && quarter && !reg && !prod && !age && !gender){
+            dev.innerHTML = `<img src="${imageUrl4}" alt="2016" class="img-fluid">`;
+            return false;
+        }
+    }
+</script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/fontawesome/js/all.min.js' %}"></script>
+</body>
+</html>
